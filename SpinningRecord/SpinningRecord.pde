@@ -3,8 +3,6 @@ PImage pictureOfRecord;
 PImage halloween; 
 import ddf.minim.*;
 Minim minim;
-Minim minim1;
-Minim minim2;
 AudioPlayer spooky;
 AudioPlayer thriller;
 AudioPlayer ghost;
@@ -15,11 +13,9 @@ Button Ghost = new Button(20, 30, 75, "Ghost Busters");
 
 void setup() {
   minim = new Minim(this);
-  minim1 = new Minim(this);
-  minim2 = new Minim(this);
   spooky = minim.loadFile("SpookySkeletons.mp3", 512);
-  thriller = minim1.loadFile("Thriller.mp3", 512);
-  ghost = minim2.loadFile("Ghostbusters.mp3", 512);
+  thriller = minim.loadFile("Thriller.mp3", 512);
+  ghost = minim.loadFile("Ghostbusters.mp3", 512);
   size(225, 225);
   //as member variable
   pictureOfRecord = loadImage("imgres.jpg"); //in setup method
@@ -53,9 +49,8 @@ void rotateImage(PImage image, int amountToRotate) {
 }
 
 void buttonActionPerformed(String buttonText) {
-  if (buttonText.equalsIgnoreCase("Ghost Busters")) {
+  if (buttonText.equalsIgnoreCase("Ghost Busters")) 
     chosen = ghost;
-  }
   if (buttonText.equalsIgnoreCase("Thriller"))
     chosen = thriller;
   if (buttonText.equalsIgnoreCase("Spooky Skeletons"))
